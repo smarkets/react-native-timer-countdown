@@ -1,0 +1,16 @@
+index.tsx
+.github
+.edit
+.DS_STORE
+.vscode
+
+node_modules
+
+npm-debug.log
+npm-debug.log*
+.prettierrc
+.prettierignore
+README.md
+tsconfig.json
+tslint.json
+demo.gif
