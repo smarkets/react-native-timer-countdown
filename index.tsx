@@ -23,7 +23,7 @@ export default class TimerCountdown extends React.Component<ITimerCountdownProps
     this.tick();
   }
 
-  public componentWillReceiveProps(newProps): void {
+  public componentWillReceiveProps(newProps: ITimerCountdownProps): void {
     if (this.state.timeoutId !== undefined) {
       clearTimeout(this.state.timeoutId);
     }
@@ -57,7 +57,7 @@ export default class TimerCountdown extends React.Component<ITimerCountdownProps
     }
 
     const secondsRemaining: number = Math.max(this.state.secondsRemaining - dt, 0);
-    const isComplete: boolean = this.state.previousSeconds && secondsRemaining <= 0;
+    const isComplete: boolean = !!this.state.previousSeconds && secondsRemaining <= 0;
 
     if (this.state.timeoutId !== undefined) {
       clearTimeout(this.state.timeoutId);
@@ -100,7 +100,7 @@ export default class TimerCountdown extends React.Component<ITimerCountdownProps
 
   public render(): React.ReactNode {
     const secondsRemaining: number = this.state.secondsRemaining;
-    const allowFontScaling: boolean = this.props.allowFontScaling;
+    const allowFontScaling: boolean = !!this.props.allowFontScaling;
     const style = this.props.style;
     return (
       <Text allowFontScaling={allowFontScaling} style={style}>
